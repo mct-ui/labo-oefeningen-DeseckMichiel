@@ -395,16 +395,11 @@ a:focus {
 
 .c-logo {
   height: 32px;
+  display: flex;
 }
 
 .c-logo__symbol {
   height: 100%;
-}
-
-@media (min-width: 768px) {
-  .c-logo {
-    height: 40px;
-  }
 }
 
 /*
@@ -413,17 +408,75 @@ a:focus {
     Main header of the website
 */
 
-.c-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.c-header__nav {
+  display: none;
 }
 
-@media (max-width: 992px) {
-    .c-header__nav {
-        display: none;
-    }
+@media (min-width: 992px) {
+  .c-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .c-header__nav {
+      display: block;
+  }
 }
+
+/*
+    Component: footer
+    ---
+    Main footer of the website
+*/
+
+.c-footer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-footer__logo {
+  width: 100%;
+}
+
+.c-footer__nav {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .c-footer {
+      justify-content: center;
+      align-items: center;
+  }
+
+  .c-footer__logo {
+      display: flex;
+      justify-content: center;
+      padding: 0 12px;
+  }
+
+  .c-footer__nav {
+      width: auto;
+      padding: 0 16px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-footer {
+      justify-content: space-between;
+  }
+
+  .c-footer__nav {
+      padding: 0;
+  }
+
+  .c-footer__logo + .c-footer__nav {
+      order: -1;
+  }
+
+  .c-footer__logo {
+      width: auto;
+  }
 
 /*
     Component: Nav
@@ -438,24 +491,93 @@ a:focus {
   letter-spacing: 1px;
 }
 
-.c-nav__link,
-.c-nav__link:visited {
+.c-nav__link {
   text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 8px 0;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
   color: #fff;
 }
 
-.is-active .c-nav__link,
 .c-nav__link:hover,
 .c-nav__link:focus {
-    color: #dbedff;
-    text-shadow: 0px 0px 8px #8ec7ff;
+  color: #DBEDFF;
+  text-shadow: 0 0 8px #8EC7FF;
 }
 
 @media (min-width: 992px) {
   .c-nav__list {
-    display: flex;
-    gap: 32px;
-    align-items: center;
+      display: flex;
+      align-items: center;
+      /* margin-left: -16px;
+      margin-right: -16px; */
+  }
+
+  .c-nav__link {
+      padding: 12px 16px;
+  }
+
+  .c-nav__item--cta {
+      margin-left: 16px;
+  }
+}
+
+/*
+    Component: Lead
+    ---
+    Lead type treatments to style everything that differs from standard typography elements
+*/
+
+.c-lead {
+  font-weight: 400;
+}
+
+.c-lead--lg {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.c-lead--xl {
+  font-size: 41px;
+  line-height: 48px;
+}
+
+/*
+  Component: figure
+  ---
+  Special type of figure and figcaption
+*/
+
+.c-figure {
+  position: relative;
+}
+
+.c-figure__caption {
+  line-height: 15px;
+  margin-top: 8px;
+  padding-left: 6px;
+  padding-top: 1px;
+  border: 2px solid #0053FB;
+  border-width: 0 0 0 2px;
+  color: #474D59;
+}
+
+@media (min-width: 768px) {
+  .c-figure__caption--absolute {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 8px;
+      text-align: right;
+      background-color: #fff;
+      padding: 16px;
+      max-width: 260px;
+      border-width: 0 4px 0 0;
   }
 }
 
@@ -467,59 +589,31 @@ a:focus {
 */
 
 .c-link-cta {
+  display: inline-block;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 13px;
-  font-weight: 600;
   line-height: 24px;
-  color: #dbedff;
-  border: 1px solid;
-  border-color: rgba(142, 199, 255, 0.1);
-  display: inline-block;
-  padding: 15px 25px;
-  background: linear-gradient(to right, #033aa7, #0053fb);
-  background-size: 150% auto;
-  box-shadow: 0px 0px 10px #1195ff;
-  transition: 0.5s;
+  font-weight: 600;
+  padding: 16px 32px;
+  transition-duration: .25s;
+  transition-timing-function: ease-in-out;
+  background: linear-gradient(to right, #033AA7 0%, #0053FB 51%, #033AA7 100%);
+  background-size: 200% auto;
+  box-shadow: inset 0 0 0 1px rgba(142,199,255,.2), 0 0 10px rgba(17,149,255,.30) ;
 }
 
 .c-link-cta,
 .c-link-cta:visited,
 .c-link-cta:active {
-  color: #dbedff;
+  color: #DBEDFF;
 }
 
 .c-link-cta:hover {
-  color: #dbedff;
+  color: #fff;
   background-position: right center;
-}
-
-.c-figure {
-  position: relative;
-}
-
-@media (max-width: 1224px) {
-  .c-figure__caption {
-      position: absolute;
-  
-      margin-top: 8px;
-      margin-right: 8px;
-      max-width: 260px;
-      top: 0;
-      right: 0;
-  
-      color: #474D59;
-      font-size: 12px;
-      line-height: 16px;
-  
-      border-style: solid;
-      border-color: #0053FB;
-      border-width: 0 4px 0 0;
-      
-      padding: 21px;
-      background-color: white;
-  }
+  box-shadow: inset 0 0 0 1px rgba(142,199,255,.4), 0 0 10px rgba(17,149,255,.8) ;
 }
 
 /*------------------------------------*\
@@ -533,6 +627,7 @@ a:focus {
 */
 
 .u-color-secondary-base {
+  color: #8EC7FF;
 }
 
 /*
