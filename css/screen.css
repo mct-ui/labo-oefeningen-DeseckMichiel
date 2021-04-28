@@ -444,14 +444,81 @@ a:focus {
   color: #fff;
 }
 
-.c-nav__link:hover {
-  text-shadow: 0 0 8px #dbedff;
+.is-active .c-nav__link,
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #dbedff;
+    text-shadow: 0px 0px 8px #8ec7ff;
 }
 
 @media (min-width: 992px) {
   .c-nav__list {
     display: flex;
     gap: 32px;
+    align-items: center;
+  }
+}
+
+
+/*
+    Component: CTA link
+    ---
+    Small cta link with custom animation
+*/
+
+.c-link-cta {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #dbedff;
+  border: 1px solid;
+  border-color: rgba(142, 199, 255, 0.1);
+  display: inline-block;
+  padding: 15px 25px;
+  background: linear-gradient(to right, #033aa7, #0053fb);
+  background-size: 150% auto;
+  box-shadow: 0px 0px 10px #1195ff;
+  transition: 0.5s;
+}
+
+.c-link-cta,
+.c-link-cta:visited,
+.c-link-cta:active {
+  color: #dbedff;
+}
+
+.c-link-cta:hover {
+  color: #dbedff;
+  background-position: right center;
+}
+
+.c-figure {
+  position: relative;
+}
+
+@media (max-width: 1224px) {
+  .c-figure__caption {
+      position: absolute;
+  
+      margin-top: 8px;
+      margin-right: 8px;
+      max-width: 260px;
+      top: 0;
+      right: 0;
+  
+      color: #474D59;
+      font-size: 12px;
+      line-height: 16px;
+  
+      border-style: solid;
+      border-color: #0053FB;
+      border-width: 0 4px 0 0;
+      
+      padding: 21px;
+      background-color: white;
   }
 }
 
